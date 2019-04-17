@@ -107,7 +107,14 @@ export default Component.extend({
     if (!pem) {
       return [];
     }
-    const pemFile = new File([pem], { type: 'text/plain' });
+    let pemFile;
+
+    // this is a sad workaround because ie11 doesn't support Files.
+    try {
+      pemFile = new File([pem], { type: 'text/plain' });
+    } catch (err) {
+      pemFile = new Blob([pem], { type: 'text/plain' });
+    }
     const links = [
       {
         display: 'Download CA Certificate in PEM format',
@@ -121,7 +128,14 @@ export default Component.extend({
       },
     ];
     if (caChain) {
-      const caChainFile = new File([caChain], { type: 'text/plain' });
+      let caChainFile;
+
+      // this is a sad workaround because ie11 doesn't support Files.
+      try {
+        caChainFile = new File([caChain], { type: 'text/plain' });
+      } catch (err) {
+        caChainFile = new Blob([caChain], { type: 'text/plain' });
+      }
       links.push({
         display: 'Download CA Certificate Chain',
         name: `${backend}_ca_chain.pem`,
