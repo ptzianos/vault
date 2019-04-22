@@ -25,37 +25,33 @@
   <Toolbar>
     <ToolbarActions>
       {{#if (or model.canUpdate model.canDelete)}}
-        {{#secret-link
-          secret=model.id
-          mode="edit"
-          replace=true
-          class="toolbar-button"
-          data-test-edit-link=true
-          }}
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="edit"
+          @data-test-edit-link=true
+          @replace=true
+        >
           Edit role
-          {{i-con glyph="chevron-right" size=12}}
-        {{/secret-link}}
+        </ToolbarSecretLink>
       {{/if}}
       {{#if (eq model.keyType "otp")}}
-        {{#secret-link
-          mode="credentials"
-          secret=model.id
-          class="toolbar-button"
-          data-test-backend-credentials=true
-        }}
-         Generate Credentials
-         {{i-con glyph="chevron-right" size=12}}
-        {{/secret-link}}
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="credentials"
+          @data-test-backend-credentials=true
+          @replace=true
+        >
+         Generate Credential
+       </ToolbarSecretLink>
       {{else}}
-        {{#secret-link
-          mode="sign"
-          secret=model.id
-          class="toolbar-button"
-          data-test-backend-credentials=true
-        }}
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="sign"
+          @data-test-backend-credentials=true
+          @replace=true
+        >
           Sign Keys
-          {{i-con glyph="chevron-right" size=12}}
-        {{/secret-link}}
+        </ToolbarSecretLink>
       {{/if}}
     </ToolbarActions>
   </Toolbar>

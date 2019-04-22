@@ -25,42 +25,34 @@
   <ToolbarActions>
     {{#if (eq mode "show") }}
       {{#if (or model.canUpdate model.canDelete)}}
-        <div class="control">
-          {{#secret-link
-            secret=model.id
-            mode="edit"
-            replace=true
-            class="toolbar-button"
-            data-test-edit-link=true
-            }}
-            Edit role
-            {{i-con glyph="chevron-right" size=12}}
-          {{/secret-link}}
-        </div>
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="edit"
+          @data-test-edit-link=true
+          @replace=true
+        >
+          Edit role
+        </ToolbarSecretLink>
       {{/if}}
       {{#if model.canGenerate}}
-        {{#secret-link
-          mode="credentials"
-          secret=model.id
-          queryParams=(query-params action="issue")
-          class="toolbar-button"
-          data-test-credentials-link=true
-          }}
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="credentials"
+          @queryParams={{query-params action="issue"}}
+          @data-test-credentials-link=true
+        >
           Generate Certificate
-          {{i-con glyph="chevron-right" size=12}}
-        {{/secret-link}}
+        </ToolbarSecretLink>
       {{/if}}
       {{#if model.canSign}}
-        {{#secret-link
-          mode="credentials"
-          secret=model.id
-          queryParams=(query-params action="sign")
-          class="toolbar-button"
-          data-test-sign-link=true
-          }}
+        <ToolbarSecretLink
+          @secret={{model.id}}
+          @mode="credentials"
+          @queryParams={{query-params action="sign"}}
+          @data-test-sign-link=true
+        >
           Sign Certificate
-          {{i-con glyph="chevron-right" size=12}}
-        {{/secret-link}}
+        </ToolbarSecretLink>
       {{/if}}
     {{/if}}
   </ToolbarActions>

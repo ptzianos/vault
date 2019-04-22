@@ -1,3 +1,6 @@
-import Component from '@ember/component';
+import Ember from 'ember';
+import SecretLink from './secret-link';
 
-export default Component.extend({});
+export default SecretLink.extend({
+  class: 'toolbar-button',
+});
