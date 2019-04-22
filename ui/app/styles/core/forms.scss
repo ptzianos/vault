@@ -189,16 +189,13 @@ label {
 }
 
 .select:not(.is-multiple)::after {
-  border-color: $black;
-  border-width: 2px;
-  margin-top: 0;
-  transform: translateY(30%) rotate(-45deg);
-}
-
-.select:not(.is-multiple)::before {
-  content: '';
-  transform: translateY(-70%) rotate(135deg);
-  z-index: 5;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPHBhdGggZD0iTTEyIDUuODNMMTUuMTcgOWwxLjQxLTEuNDFMMTIgMyA3LjQxIDcuNTkgOC44MyA5IDEyIDUuODN6bTAgMTIuMzRMOC44MyAxNWwtMS40MSAxLjQxTDEyIDIxbDQuNTktNC41OUwxNS4xNyAxNSAxMiAxOC4xN3oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K');
+  border: 0;
+  height: 24px;
+  margin: 0;
+  right: $spacing-xs;
+  transform: translateY(-50%);
+  width: 24px;
 }
 
 .field:not(:last-child) {
