@@ -411,10 +411,13 @@ func (c *ConfigEntry) PasswordlessMap() map[string]interface{} {
 		"insecure_tls":           c.InsecureTLS,
 		"starttls":               c.StartTLS,
 		"binddn":                 c.BindDN,
+		"bindpass":               c.BindPassword,
 		"deny_null_bind":         c.DenyNullBind,
 		"discoverdn":             c.DiscoverDN,
 		"tls_min_version":        c.TLSMinVersion,
 		"tls_max_version":        c.TLSMaxVersion,
+		"tls_cert":               c.ClientTLSCert,
+		"tls_key":                c.ClientTLSKey,
 		"use_token_groups":       c.UseTokenGroups,
 		"anonymous_group_search": c.AnonymousGroupSearch,
 	}
